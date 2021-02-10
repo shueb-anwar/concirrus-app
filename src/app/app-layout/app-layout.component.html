@@ -1,0 +1,20 @@
+<div class="" id="wrapper">
+  <div class="sidebar-wrapper">
+    <div class="list-group list-group-flush">
+      <a href="#" class="list-group-item list-group-item-action" *ngFor="let employee of employeeList" (click)="showDetail(employee)" [ngClass]="{
+    'active': employee.name == selected
+  }"><span [ngClass]="'txt-s-' + employee.popularity">{{ employee.name }}</span></a>
+    </div>
+  </div>
+  <!-- /#sidebar-wrapper -->
+
+  <!-- Page Content -->
+  <header>
+    <div class="site-logo"><img src="/assets/logo/the-godfather.svg" width="150" /></div>
+  </header>
+  <div class="page-content-wrapper">
+  	<router-outlet></router-outlet>
+  </div>
+
+</div>
+<!-- /#wrapper -->

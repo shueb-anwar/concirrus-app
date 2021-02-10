@@ -1,0 +1,191 @@
+
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@import '~@angular/material/theming';
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat-core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$md-mycustomprimary: (
+  50: #e4e9ed,
+  100: #bcc7d2,
+  200: #7a9bb9,
+  300: #627c95,
+  400: #40607f,
+  500: #1e4468,
+  600: #1a3e60,
+  700: #163555,
+  800: #122d4b,
+  900: #0a1f3a,
+  A100: #000000,
+  A200: #4089ff,
+  A400: #0d6aff,
+  A700: #005df2,
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #ffffff,
+    400: #ffffff,
+    500: #ffffff,
+    600: #ffffff,
+    700: #ffffff,
+    800: #ffffff,
+    900: #ffffff,
+    A100: #ffffff,
+    A200: #ffffff,
+    A400: #ffffff,
+    A700: #ffffff
+  )
+);
+$concirrus-app-primary: mat-palette($md-mycustomprimary, A100);
+$concirrus-app-accent: mat-palette($mat-pink, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$concirrus-app-warn: mat-palette($mat-red);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$concirrus-app-theme: mat-light-theme((
+  color: (
+    primary: $concirrus-app-primary,
+    accent: $concirrus-app-accent,
+    warn: $concirrus-app-warn,
+  )
+));
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include angular-material-theme($concirrus-app-theme);
+
+html, body { height: 100%; }
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue",sans-serif; 
+  font-weight: 300;
+}
+
+header {
+	background: url('/assets/images/Header image/Godfather header.jpg') no-repeat;
+	height: 30vh;
+	background-position: center -170px;
+	background-size: 100%;
+
+	.site-logo {
+		width: 18rem;
+		height: 100%;
+		text-align: center;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		position: relative;
+		z-index: 1;
+	}
+}
+
+#wrapper {
+    overflow-x: hidden;
+}
+
+.sidebar-wrapper {
+  min-height: 100vh;
+  padding-top: 40vh;
+  position: absolute;
+  top: 0;
+  -webkit-transition: margin .25s ease-out;
+  -moz-transition: margin .25s ease-out;
+  -o-transition: margin .25s ease-out;
+  transition: margin .25s ease-out;
+  background: rgba(0,0,0,0.4);
+}
+
+.sidebar-wrapper .sidebar-heading {
+  padding: 5.875rem 1.25rem;
+  font-size: 1.2rem;
+}
+
+.sidebar-wrapper .list-group {
+  width: 18rem;
+
+  .list-group-item {
+  	background-color: transparent;
+
+  	&.active {
+  		background-color: rgba(0,0,0,0.4);
+  	}
+  }
+}
+
+.page-content-wrapper {
+  padding: 50px 50px 0 350px;
+  background-color: #333;
+  height: 70vh;
+  box-shadow: 0 0 50px 50px rgba(0,0,0,0.9);
+}
+
+#wrapper.toggled #sidebar-wrapper {
+  margin-left: 0;
+}
+
+.txt-s-1{ font-size: 10px; }
+.txt-s-2{ font-size: 14px; }
+.txt-s-3{ font-size: 20px; }
+.txt-s-4{ font-size: 24px; }
+.txt-s-5{ font-size: 30px; }
+.txt-s-6{ font-size: 36px; }
+
+@media (min-width: 768px) {
+  .sidebar-wrapper {
+    margin-left: 0;
+  }
+
+  .page-content-wrapper {
+    min-width: 0;
+    width: 100%;
+  }
+
+  #wrapper.toggled .sidebar-wrapper {
+    margin-left: -15rem;
+  }
+}
+
+
+.employee-detail {
+  position: relative;
+  top: -90px;
+
+  img {
+    border: 1px solid rgba(255,255,255,0.3);
+    box-shadow: 0px 0px 3px rgba(255,255,255,0.3);
+  }
+
+  h2, p, span {
+    color: #fff;
+    font-weight: normal;
+  }
+
+  .mat-slider-horizontal {
+    width: 70%;
+  }
+
+  .name {
+    margin-bottom: 15px;
+    line-height: initial;
+    height: 46px;
+    line-height: 46px;
+  }
+
+  .biography {
+    background-color: rgba(0,0,0,0.4);
+    padding: 20px;
+    margin-top: 10px;
+  }
+}
